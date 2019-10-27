@@ -6,11 +6,11 @@
 	<form>
 		<div class="form-group">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name">
+			<input type="text" class="form-control" id="name" required  [(ngModel)]="model.name" name="name">
 		</div>
 		<div class="form-group">
 			<label for="rentableArea">Rentable Area</label>
-			<input type="text" class="form-control" id="rentableArea">
+			<input type="text" class="form-control" id="rentableArea" required>
 		</div>
 		<div class="form-group">
 			<label for="tenantName">Tenant Name</label>
@@ -18,7 +18,8 @@
 		</div>
 		<div class="form-group">
 			<label for="tenantArea">Tenant Area</label>
-			<input type="text" class="form-control" id="tenantArea">
+			<input type="text" class="form-control" id="tenantArea" required>
 		</div> 
+		<button type="submit" class="btn btn-success">Submit</button>
 	</form>
 </div>
