@@ -1,8 +1,8 @@
 export class Property {
 	constructor(
 		public name: string,
-		public tennantName?: string,
 		public rentableArea: number,
+		public tennantName?: string,
 		public tenantArea: number
 	) {}
 }

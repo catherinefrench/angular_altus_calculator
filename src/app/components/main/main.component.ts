@@ -9,9 +9,14 @@ import { Property } from '../../property';
 export class MainComponent implements OnInit {
 
 	showOccupancy: boolean = false;
+	property: Property = {
+		name: '',
+		rentableArea: null,
+		tenantName: '',
+		tenantArea: null
+	}
 
-	model =  new Property('23 Cannon Place', 'Ashridge Fine Foods',
-                       305000,
+	model =  new Property('23 Cannon Place', 305000, 'Ashridge Fine Foods',
                        63500);
   constructor() { }
 
@@ -21,7 +26,18 @@ export class MainComponent implements OnInit {
   fireEvent(e){
   	console.log(e);
   }
- 
+  fireEvent2(e){
+  	console.log(e.target.value);
+	if (!this.showOccupancy) {
+		this.showOccupancy = true;
+	}
+  }
 
+  onSubmit(e) {
+  	console.log("Form submitted!");
+  	console.log(e.type);
+  	e.preventDefault(); 
+  }
+  
 // get diagnostic() { return JSON.stringify(this.model); }
 }
