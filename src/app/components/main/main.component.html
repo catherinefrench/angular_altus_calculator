@@ -1,16 +1,21 @@
+<h2>{{model.name}}</h2>
+
 <div>
-	<h2>Occupancy</h2>
+	<h3>Occupancy</h3>
+	<div *ngIf="showOccupancy">
+		{{model.tenantArea}}
+	</div>
 </div>
 <div>
-	<h2>Property</h2>
-	<form>
+	<h3>Property</h3>
+	<form #main="ngForm">
 		<div class="form-group">
 			<label for="name">Name</label>
 			<input type="text" class="form-control" id="name" required  [(ngModel)]="model.name" name="name">
 		</div>
 		<div class="form-group">
 			<label for="rentableArea">Rentable Area</label>
-			<input type="text" class="form-control" id="rentableArea" required>
+			<input type="text" class="form-control" id="rentableArea" required  >
 		</div>
 		<div class="form-group">
 			<label for="tenantName">Tenant Name</label>
@@ -18,8 +23,8 @@
 		</div>
 		<div class="form-group">
 			<label for="tenantArea">Tenant Area</label>
-			<input type="text" class="form-control" id="tenantArea" required>
+			<input type="text" class="form-control" id="tenantArea" required [(ngModel)]="model.tenantArea">
 		</div> 
-		<button type="submit" class="btn btn-success">Submit</button>
+		<button (click)="fireEvent($event)" type="submit" class="btn btn-success">Submit</button>
 	</form>
 </div>

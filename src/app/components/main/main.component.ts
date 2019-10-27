@@ -8,13 +8,20 @@ import { Property } from '../../property';
 })
 export class MainComponent implements OnInit {
 
+	showOccupancy: boolean = false;
+
+	model =  new Property('23 Cannon Place', 'Ashridge Fine Foods',
+                       305000,
+                       63500);
   constructor() { }
 
   ngOnInit() {
   }
 
+  fireEvent(e){
+  	console.log(e);
+  }
+ 
+
+// get diagnostic() { return JSON.stringify(this.model); }
 }
-let myProperty =  new Property('23 Cannon Place', 'Ashridge Fine Foods',
-                       305000,
-                       63500);
-console.log('My property is' + myProperty.name); // "My hero is called SkyDog"
