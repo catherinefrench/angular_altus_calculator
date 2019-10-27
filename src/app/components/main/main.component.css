@@ -1,4 +1,21 @@
-p {
-	font-family: Lora;
+:host {
+	display: block; 
+	margin-top: 40px;
+	margin-left: 40px;
 }
 
+.progressBarContainer {
+	border: 1px solid black;
+	width: 60%;
+}
+
+.progressBar {
+	display: block;
+	width: 0%;
+	height: 20px;
+	background-color: red;
+}
+
+.sqft { 
+	margin: 0 5px;
+}

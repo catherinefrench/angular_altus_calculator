@@ -9,15 +9,19 @@ import { Property } from '../../property';
 export class MainComponent implements OnInit {
 
 	showOccupancy: boolean = false;
+	showTenantAreaPercent: boolean = false;
+	progressBar: 0;
+
 	property: Property = {
 		name: '',
 		rentableArea: null,
 		tenantName: '',
-		tenantArea: null
-	}
+		tenantArea: null,
+		tenantAreaPercent: 50
+	} 
 
-	model =  new Property('23 Cannon Place', 305000, 'Ashridge Fine Foods',
-                       63500);
+	progressStyles = [];
+
   constructor() { }
 
   ngOnInit() {
@@ -26,11 +30,36 @@ export class MainComponent implements OnInit {
   fireEvent(e){
   	console.log(e);
   }
-  fireEvent2(e){
-  	console.log(e.target.value);
+  fireEventTenantArea(e){
+  	// console.log(e.target.value);
 	if (!this.showOccupancy) {
 		this.showOccupancy = true;
 	}
+
+  }
+  fireEventRentableArea(e){ 
+ 	console.log(e.target.value);
+  	this.property.rentableArea = e.target.value;
+ 	console.log(this.property.rentableArea);
+
+  	// this.property.tenantAreaPercent = 10 / 100;
+
+  	this.property.tenantAreaPercent = this.property.tenantArea *100 / this.property.rentableArea;
+  	// console.log(this.property.tenantAreaPercent);  
+
+  	// showsTenantAreaPercent if there has been a keypress in tenantArea
+
+  	if (!this.showTenantAreaPercent) {
+  		this.showTenantAreaPercent = true;
+  	} 
+
+ 	console.log("NEW");
+ 	console.log(this.property.rentableArea);
+ 	console.log(this.property.tenantAreaPercent);
+
+ 	this.progressStyles = this.property.tenantAreaPercent;
+ 	console.log(this.progressStyles);
+ 	
   }
 
   onSubmit(e) {
