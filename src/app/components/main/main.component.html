@@ -7,8 +7,8 @@
 			<span *ngIf="tenantAreaPercent" class="progressBar" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
 		</div>
 		<span>{{property.tenantArea}}</span>
-		<span class="sqft">SF</span>
-		<span *ngIf="showTenantAreaPercent">( {{tenantAreaPercent | percent}} )
+		<span *ngIf="tenantAreaPercent" class="sqft">SF</span>
+		<span *ngIf="tenantAreaPercent">( {{tenantAreaPercent | percent}} )
 		</span>
 	</div>
 </div>
@@ -22,7 +22,7 @@
 			</div>
 			<div class="form-group">
 				<label for="rentableArea">Rentable Area</label>
-				<input type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" (input)=fireEventRentableArea($event) > 
+				<input type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" (input)=calculateTenantAreaPercent($event) > 
 			</div>
 		</div>
 
@@ -34,7 +34,7 @@
 			</div>
 			<div class="form-group">
 				<label for="tenantArea">Tenant Area</label>
-				<input type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea"  (input)=fireEventTenantArea($event)>
+				<input type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea"  (input)=calculateTenantAreaPercent($event)>
 			</div> 
 		</div>
 	</form>

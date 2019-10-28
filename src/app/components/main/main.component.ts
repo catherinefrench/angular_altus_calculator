@@ -29,22 +29,4 @@ export class MainComponent implements OnInit {
   	this.tenantAreaPercent = this.property.tenantArea / this.property.rentableArea;
   }
  
-  fireEventTenantArea = (e) => { 
-	this.calculateTenantAreaPercent(); 
-  }
-
-  fireEventRentableArea = (e) => {     
- 	this.calculateTenantAreaPercent(); 
-  }
-
-  onSubmit(e) {
-  	console.log("Form submitted!");
-  	console.log(e.type);
-  	e.preventDefault(); 
-  }
- 
-  fireSubmitEvent(e){
-  	console.log(e);
-  }
-   
 }
