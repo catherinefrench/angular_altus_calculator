@@ -2,8 +2,7 @@
 <div>
 	<h3>Occupancy</h3>
 	<div *ngIf="showOccupancy">
-		<div class="progressBarContainer"> 
-			<!-- <span class="progressBar" [style.backgroundColor]=" tenantAreaPercent != null ? 'red': 'white'"></span> -->
+		<div class="progressBarContainer">  
 			<span *ngIf="tenantAreaPercent" class="progressBar" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
 		</div>
 		<span>{{property.tenantArea}}</span>
