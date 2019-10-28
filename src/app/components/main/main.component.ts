@@ -7,45 +7,33 @@ import { FormControl } from '@angular/forms';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
+
 export class MainComponent implements OnInit {
- 
-	tenantAreaPercent: null;
+
+	tenantAreaPercent: number = null;
 	showTenantAreaPercent: boolean = true; 
-	showOccupancy: boolean = true;
- 	rentableArea = 3;
+	showOccupancy: boolean = true; 
 	property: Property = {
 		name: '',
 		rentableArea: null,
 		tenantName: '',
 		tenantArea: null
-	}; 
-	// styles = [
-	// 	`backgroundColor: 'red'`,
-	// 	`width: 'tenantAreaPercent%'`
-	// ]
+	};  
 
   constructor() { }
 
   ngOnInit() {
-  
   } 
 
   calculateTenantAreaPercent = () => { 
   	this.tenantAreaPercent = this.property.tenantArea / this.property.rentableArea;
   }
  
-  fireEventTenantArea = (e) => {
-  	// console.log(e.target.value);
-	// if (!this.showOccupancy) {
-	// 	this.showOccupancy = true;
-	// } 
+  fireEventTenantArea = (e) => { 
 	this.calculateTenantAreaPercent(); 
   }
 
-  fireEventRentableArea = (e) => {    
-  	// if (!this.showTenantAreaPercent) {
-  	// 	this.showTenantAreaPercent = true;
-  	// } 
+  fireEventRentableArea = (e) => {     
  	this.calculateTenantAreaPercent(); 
   }
 

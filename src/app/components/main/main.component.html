@@ -1,5 +1,4 @@
-<h2>{{property.name}}</h2>
-
+<h3>{{property.name}}</h3>
 <div>
 	<h3>Occupancy</h3>
 	<div *ngIf="showOccupancy">
@@ -13,10 +12,10 @@
 		</span>
 	</div>
 </div>
-<div>
-	<h3>Property</h3>
-	<form (submit)="onSubmit($event)" #main="ngForm" >
-		<div class="flex-container">
+<div> 
+	<form #main="ngForm" class="form-container">
+		<div class="property-container">
+			<h3>Property</h3>
 			<div class="form-group">
 				<label for="name">Name</label>
 				<input type="text" class="form-control" id="name" required  [(ngModel)]="property.name" name="name">
@@ -25,6 +24,10 @@
 				<label for="rentableArea">Rentable Area</label>
 				<input type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" (input)=fireEventRentableArea($event) > 
 			</div>
+		</div>
+
+		<div class="tenant-container">
+			<h3>Tenant</h3>
 			<div class="form-group">
 				<label for="tenantName">Tenant Name</label>
 				<input type="text" class="form-control" id="tenantName">
@@ -34,6 +37,5 @@
 				<input type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea"  (input)=fireEventTenantArea($event)>
 			</div> 
 		</div>
-		<button (click)="fireSubmitEvent($event)" type="submit" class="btn btn-success">Submit</button>
 	</form>
 </div>
