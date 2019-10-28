@@ -18,7 +18,11 @@ export class MainComponent implements OnInit {
 		rentableArea: null,
 		tenantName: '',
 		tenantArea: null
-	};  
+	}; 
+	// styles = [
+	// 	`backgroundColor: 'red'`,
+	// 	`width: 'tenantAreaPercent%'`
+	// ]
 
   constructor() { }
 
@@ -30,7 +34,11 @@ export class MainComponent implements OnInit {
   	this.tenantAreaPercent = this.property.tenantArea / this.property.rentableArea;
   }
  
-  fireEventTenantArea = (e) => {f
+  fireEventTenantArea = (e) => {
+  	// console.log(e.target.value);
+	// if (!this.showOccupancy) {
+	// 	this.showOccupancy = true;
+	// } 
 	this.calculateTenantAreaPercent(); 
   }
 

@@ -5,7 +5,7 @@
 	<div *ngIf="showOccupancy">
 		<div class="progressBarContainer"> 
 			<!-- <span class="progressBar" [style.backgroundColor]=" tenantAreaPercent != null ? 'red': 'white'"></span> -->
-			<span *ngIf="showTenantAreaPercent" class="progressBar" [style.width.%]="tenantAreaPercent * 100"></span>
+			<span *ngIf="tenantAreaPercent" class="progressBar" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
 		</div>
 		<span>{{property.tenantArea}}</span>
 		<span class="sqft">SF</span>
