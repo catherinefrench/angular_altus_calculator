@@ -7,59 +7,54 @@ import { Property } from '../../property';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+ 
+	showTenantAreaPercent: boolean = true; 
 	showOccupancy: boolean = false;
-	showTenantAreaPercent: boolean = false;
-	progressBar: 0;
-
-	property: Property = {
-		name: '',
-		rentableArea: null,
-		tenantName: '',
-		tenantArea: null,
-		tenantAreaPercent: 50
-	} 
-
-	progressStyles = [];
+ 	rentableArea = 3;
+	property: Property;
+	// style = {
+	// 	color: red;
+	// }
 
   constructor() { }
 
   ngOnInit() {
-  }
 
-  fireEvent(e){
-  	console.log(e);
-  }
+ 	this.property = {
+		name: '',
+		rentableArea: null,
+		tenantName: '',
+		tenantArea: null,
+		tenantAreaPercent: null
+	}; 
+
+	this.calculateTenantAreaPercent();
+
+  } 
+	calculateTenantAreaPercent() {
+		console.log(this.property);
+		// let tenantArea = ;
+		// let rentableArea = ;
+		this.property.tenantAreaPercent = this.property.tenantArea * 10 / this.property.rentableArea;
+		console.log(this.property.tenantAreaPercent);
+	} 
+  
   fireEventTenantArea(e){
   	// console.log(e.target.value);
 	if (!this.showOccupancy) {
 		this.showOccupancy = true;
-	}
-
+	} 
+	this.calculateTenantAreaPercent();
+	e.stopPropagation();
   }
-  fireEventRentableArea(e){ 
- 	console.log(e.target.value);
-  	this.property.rentableArea = e.target.value;
- 	console.log(this.property.rentableArea);
 
-  	// this.property.tenantAreaPercent = 10 / 100;
-
-  	this.property.tenantAreaPercent = this.property.tenantArea *100 / this.property.rentableArea;
-  	// console.log(this.property.tenantAreaPercent);  
-
-  	// showsTenantAreaPercent if there has been a keypress in tenantArea
+  fireEventRentableArea(e){    
 
   	if (!this.showTenantAreaPercent) {
   		this.showTenantAreaPercent = true;
   	} 
-
- 	console.log("NEW");
- 	console.log(this.property.rentableArea);
- 	console.log(this.property.tenantAreaPercent);
-
- 	this.progressStyles = this.property.tenantAreaPercent;
- 	console.log(this.progressStyles);
- 	
+ 	this.calculateTenantAreaPercent();
+ 	e.stopPropagation();
   }
 
   onSubmit(e) {
@@ -67,6 +62,9 @@ export class MainComponent implements OnInit {
   	console.log(e.type);
   	e.preventDefault(); 
   }
-  
-// get diagnostic() { return JSON.stringify(this.model); }
+ 
+  fireSubmitEvent(e){
+  	console.log(e);
+  }
+   
 }

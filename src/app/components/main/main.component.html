@@ -4,32 +4,36 @@
 	<h3>Occupancy</h3>
 	<div *ngIf="showOccupancy">
 		<div class="progressBarContainer">
-			<span class="progressBar"></span>
+			<span class="progressBar" ></span>
+			<span class="progressBar" [style.backgroundColor]=" property.showTenantAreaPercent ? 'red': 'white'"></span>
+
 		</div>
 		<span>{{property.tenantArea}}</span>
 		<span class="sqft">SF</span>
-		<span *ngIf="showTenantAreaPercent">( {{property.tenantAreaPercent / 100 | percent}} )</span>
+		<span *ngIf="showTenantAreaPercent">( {{property.tenantAreaPercent}} )</span>
 	</div>
 </div>
 <div>
 	<h3>Property</h3>
-	<form (submit)="onSubmit($event)" #main="ngForm">
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name" required  [(ngModel)]="property.name" name="name">
+	<form (submit)="onSubmit($event)" #main="ngForm" >
+		<div class="flex-container">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" id="name" required  [(ngModel)]="property.name" name="name">
+			</div>
+			<div class="form-group">
+				<label for="rentableArea">Rentable Area</label>
+				<input (keypress)=fireEventRentableArea($event) type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" > 
+			</div>
+			<div class="form-group">
+				<label for="tenantName">Tenant Name</label>
+				<input type="text" class="form-control" id="tenantName">
+			</div>
+			<div class="form-group">
+				<label for="tenantArea">Tenant Area</label>
+				<input (keypress)=fireEventTenantArea($event) type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea">
+			</div> 
 		</div>
-		<div class="form-group">
-			<label for="rentableArea">Rentable Area</label>
-			<input (keypress)=fireEventRentableArea($event) type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" >
-		</div>
-		<div class="form-group">
-			<label for="tenantName">Tenant Name</label>
-			<input type="text" class="form-control" id="tenantName">
-		</div>
-		<div class="form-group">
-			<label for="tenantArea">Tenant Area</label>
-			<input (keypress)=fireEventTenantArea($event) type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea">
-		</div> 
-		<button (click)="fireEvent($event)" type="submit" class="btn btn-success">Submit</button>
+		<button (click)="fireSubmitEvent($event)" type="submit" class="btn btn-success">Submit</button>
 	</form>
 </div>
