@@ -10,7 +10,8 @@
 		</div>
 		<span>{{property.tenantArea}}</span>
 		<span class="sqft">SF</span>
-		<span *ngIf="showTenantAreaPercent">( {{property.tenantAreaPercent}} )</span>
+		<span *ngIf="showTenantAreaPercent">( {{tenantAreaPercent | percent}} )
+		</span>
 	</div>
 </div>
 <div>
@@ -23,7 +24,7 @@
 			</div>
 			<div class="form-group">
 				<label for="rentableArea">Rentable Area</label>
-				<input (keypress)=fireEventRentableArea($event) type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" > 
+				<input type="text" class="form-control" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" (input)=fireEventRentableArea($event) > 
 			</div>
 			<div class="form-group">
 				<label for="tenantName">Tenant Name</label>
@@ -31,7 +32,7 @@
 			</div>
 			<div class="form-group">
 				<label for="tenantArea">Tenant Area</label>
-				<input (keypress)=fireEventTenantArea($event) type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea">
+				<input type="text" class="form-control" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea"  (input)=fireEventTenantArea($event)>
 			</div> 
 		</div>
 		<button (click)="fireSubmitEvent($event)" type="submit" class="btn btn-success">Submit</button>

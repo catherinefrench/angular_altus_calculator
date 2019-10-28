@@ -3,8 +3,7 @@ export class Property {
 		public name: string,
 		public rentableArea: number,
 		public tennantName?: string,
-		public tenantArea: number,
-		public tenantAreaPercent: number
+		public tenantArea: number 
 	) {}
 }
 

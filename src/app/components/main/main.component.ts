@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Property } from '../../property';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
@@ -7,11 +8,19 @@ import { Property } from '../../property';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
  
+
+	tenantAreaPercent: 4;
 	showTenantAreaPercent: boolean = true; 
-	showOccupancy: boolean = false;
+	showOccupancy: boolean = true;
  	rentableArea = 3;
-	property: Property;
+	property: Property = {
+		name: 'Enter Name',
+		rentableArea: null,
+		tenantName: '',
+		tenantArea: null
+	}; 
 	// style = {
 	// 	color: red;
 	// }
@@ -20,41 +29,41 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
 
- 	this.property = {
-		name: '',
-		rentableArea: null,
-		tenantName: '',
-		tenantArea: null,
-		tenantAreaPercent: null
-	}; 
+ 	// this.property 
 
 	this.calculateTenantAreaPercent();
 
-  } 
-	calculateTenantAreaPercent() {
-		console.log(this.property);
-		// let tenantArea = ;
-		// let rentableArea = ;
-		this.property.tenantAreaPercent = this.property.tenantArea * 10 / this.property.rentableArea;
-		console.log(this.property.tenantAreaPercent);
-	} 
-  
-  fireEventTenantArea(e){
-  	// console.log(e.target.value);
-	if (!this.showOccupancy) {
-		this.showOccupancy = true;
-	} 
-	this.calculateTenantAreaPercent();
-	e.stopPropagation();
+  }
+ 
+  testFunc = () => {
   }
 
-  fireEventRentableArea(e){    
+  calculateTenantAreaPercent = () => {
+   	console.log("Showing TAP"); 
+   	 
+   	console.log(this.property.tenantArea);
+   	console.log(this.property.rentableArea);
 
-  	if (!this.showTenantAreaPercent) {
-  		this.showTenantAreaPercent = true;
-  	} 
- 	this.calculateTenantAreaPercent();
- 	e.stopPropagation();
+  	this.tenantAreaPercent = this.property.tenantArea / this.property.rentableArea;
+
+  	// setTimeout( function(){
+  	// 	console.log(tenantAreaPercent);
+  	// }, 500 );
+  }
+ 
+  fireEventTenantArea = (e) => {
+  	// console.log(e.target.value);
+	// if (!this.showOccupancy) {
+	// 	this.showOccupancy = true;
+	// } 
+	this.calculateTenantAreaPercent(); 
+  }
+
+  fireEventRentableArea = (e) => {    
+  	// if (!this.showTenantAreaPercent) {
+  	// 	this.showTenantAreaPercent = true;
+  	// } 
+ 	this.calculateTenantAreaPercent(); 
   }
 
   onSubmit(e) {
