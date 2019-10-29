@@ -1,6 +1,10 @@
 <div class="main-container"> 
   <h3 class="property-name-jumbotron">{{property.name}}</h3>
   <div class="main-cards-container">
+  	<div *ngIf="tenantAreaPercent == null" class="occupancy-container">
+  		<h3>Occupancy Calculator</h3>
+		<p>To determine your tenant's occupancy percentage, please enter the property and tenant information below.</p>
+  	</div>
     <div *ngIf="tenantAreaPercent != null" class="occupancy-container">
       <h3>Occupancy</h3>
       <div>
