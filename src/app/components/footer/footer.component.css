@@ -1,8 +1,40 @@
 :host {
-	display: block; 
-	padding-top: 40px;
-	padding-left: 40px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: center;
 	background-color: #07243C;
 	color: #FFF;
-	height: 100px;
-} 
+	height: 10rem;
+}
+@media screen and (min-width: 768px) {
+  :host {
+	display: flex; 
+	justify-content: left;
+	text-align: left;
+	font-size: 1.6rem;
+  }
+}
+ 
+
+@media screen and (min-width: 768px) {
+  div {
+  	width: 80%;
+  	margin: 0 auto;
+  }
+}
+
+
+p {
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  p {
+  	display: block;
+	text-align: left;
+	font-size: 1.6rem;
+	left: 30rem;
+  }
+}
