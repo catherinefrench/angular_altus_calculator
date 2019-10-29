@@ -1,12 +1,12 @@
-<div class="main-container">
+<div class="main-container"> 
   <h3 class="property-name-jumbotron">{{property.name}}</h3>
   <div class="main-cards-container">
-    <div class="occupancy-container">
+    <div *ngIf="tenantAreaPercent != null" class="occupancy-container">
       <h3>Occupancy</h3>
-      <div *ngIf="showOccupancy">
+      <div>
         <div class="progress-bar-container">
         	<div class="progress-bar-outer">
-          		<span *ngIf="tenantAreaPercent" class="progress-bar-fill" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
+          		<span class="progress-bar-fill" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
           	</div>
         </div>
         <span>{{property.tenantArea}}</span>
