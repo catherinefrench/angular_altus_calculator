@@ -10,23 +10,22 @@ import { FormControl } from '@angular/forms';
 
 export class MainComponent implements OnInit {
 
-	tenantAreaPercent: number = null;
-	showTenantAreaPercent: boolean = true; 
-	showOccupancy: boolean = true; 
-	property: Property = {
-		name: '',
-		rentableArea: null,
-		tenantName: '',
-		tenantArea: null
-	};  
+  tenantAreaPercent: number = null;
+  showTenantAreaPercent: boolean = true;
+  showOccupancy: boolean = true;
+  property: Property = {
+    name: '',
+    rentableArea: null,
+    tenantName: '',
+    tenantArea: null
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  } 
+  ngOnInit() {}
 
-  calculateTenantAreaPercent = () => { 
-  	this.tenantAreaPercent = this.property.tenantArea / this.property.rentableArea;
+  calculateTenantAreaPercent = () => {
+    this.tenantAreaPercent = this.property.tenantArea / this.property.rentableArea;
   }
- 
+
 }

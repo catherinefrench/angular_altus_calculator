@@ -1,40 +1,43 @@
-<h3>{{property.name}}</h3>
-<div class="occupancy-container">
-	<h3>Occupancy</h3>
-	<div *ngIf="showOccupancy">
-		<div class="progressBarContainer">  
-			<span *ngIf="tenantAreaPercent" class="progressBar" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
-		</div>
-		<span>{{property.tenantArea}}</span>
-		<span *ngIf="tenantAreaPercent" class="sqft">SF</span>
-		<span *ngIf="tenantAreaPercent">( {{tenantAreaPercent | percent}} )
-		</span>
-	</div>
-</div>
-<div class="property-container"> 
-	<form #main="ngForm" class="form-container">
-		<div class="property-details-container">
-			<h3>Property</h3>
-			<div class="form-set">
-				<label for="name" class="form-label">Name</label>
-				<input type="text" class="form-field" id="name" required  [(ngModel)]="property.name" name="name">
-			</div>
-			<div class="form-set">
-				<label for="rentableArea">Rentable Area</label>
-				<input type="text" class="form-field" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" (input)=calculateTenantAreaPercent($event) > 
-			</div>
-		</div>
-
-		<div class="tenant-container">
-			<h3>Tenant</h3>
-			<div class="form-set">
-				<label for="tenantName">Tenant Name</label>
-				<input type="text" class="form-field" id="tenantName">
-			</div>
-			<div class="form-set">
-				<label for="tenantArea">Tenant Area</label>
-				<input type="text" class="form-field" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea"  (input)=calculateTenantAreaPercent($event)>
-			</div> 
-		</div>
-	</form>
+<div class="main-container">
+  <h3 class="property-name-jumbotron">{{property.name}}</h3>
+  <div class="main-cards-container">
+    <div class="occupancy-container">
+      <h3>Occupancy</h3>
+      <div *ngIf="showOccupancy">
+        <div class="progressBarContainer">
+          <span *ngIf="tenantAreaPercent" class="progressBar" [style.width.%]="tenantAreaPercent * 100" [style.background-color]="'#47DC96'"></span>
+        </div>
+        <span>{{property.tenantArea}}</span>
+        <span *ngIf="tenantAreaPercent" class="sqft">SF</span>
+        <span *ngIf="tenantAreaPercent">( {{tenantAreaPercent | percent}} )
+        </span>
+      </div>
+    </div>
+    <div class="property-container">
+      <form #main="ngForm" class="form-container">
+        <div class="property-details-container">
+          <h3>Property</h3>
+          <div class="form-set">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-field" id="name" required [(ngModel)]="property.name" name="name">
+          </div>
+          <div class="form-set">
+            <label for="rentableArea">Rentable Area</label>
+            <input type="text" class="form-field" id="rentableArea" required [(ngModel)]="property.rentableArea" name="rentableArea" (input)=calculateTenantAreaPercent($event)>
+          </div>
+        </div>
+        <div class="tenant-container">
+          <h3>Tenant</h3>
+          <div class="form-set">
+            <label for="tenantName">Tenant Name</label>
+            <input type="text" class="form-field" id="tenantName">
+          </div>
+          <div class="form-set">
+            <label for="tenantArea">Tenant Area</label>
+            <input type="text" class="form-field" id="tenantArea" required [(ngModel)]="property.tenantArea" name="tenantArea" (input)=calculateTenantAreaPercent($event)>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
